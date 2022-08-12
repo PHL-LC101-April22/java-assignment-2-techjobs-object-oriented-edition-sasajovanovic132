@@ -12,11 +12,15 @@ public class CoreCompetency {
         this.id = nextId;
         nextId++;
     }
-
     public CoreCompetency(String value) {
         this();
         this.value = value;
     }
+
+    public String getValue() {
+        return value;
+    }
+
 
     // Custom toString, equals, and hashCode methods:
 
@@ -36,6 +40,14 @@ public class CoreCompetency {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     // TODO: Use the "Generate" tool to add a getter and setter for the 'value' field but
