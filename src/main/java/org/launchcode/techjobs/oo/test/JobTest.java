@@ -50,4 +50,29 @@ public class JobTest {
 
     }
 
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        char firstChar = job4.toString().charAt(0);
+        char lastChar = job4.toString().charAt(job4.toString().length()-1);
+        assertEquals('\n',firstChar);
+        assertEquals('\n', lastChar);
+
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String str = "\nID: " +   "\n" +
+                "Name: " + job5.getName() + "\n" +
+                "Employer: " + job5.getEmployer() + "\n" +
+                "Location: " + job5.getLocation() + "\n" +
+                "Position Type: " + job5.getPositionType() + "\n" +
+                "Core Competency: " + job5.getCoreCompetency() + "\n";
+
+        assertEquals(job5.toString().toUpperCase(),str.toUpperCase());
+
+    }
+
+
 }
