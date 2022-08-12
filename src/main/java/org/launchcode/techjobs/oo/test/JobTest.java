@@ -62,7 +62,7 @@ public class JobTest {
     }
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
-        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job5 = new Job("", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String str = "\nID: " +   "\n" +
                 "Name: " + job5.getName() + "\n" +
                 "Employer: " + job5.getEmployer() + "\n" +
@@ -72,6 +72,17 @@ public class JobTest {
 
         assertEquals(job5.toString().toUpperCase(),str.toUpperCase());
 
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String str = "\nID: " + job.getId() + "\n" +
+                "Name: " + job.getName() + "\n" +
+                "Employer: " + job.getEmployer() + "\n" +
+                "Location: " + job.getLocation() + "\n" +
+                "Position Type: " + job.getPositionType() + "\n" +
+                "Core Competency: "+ job.getCoreCompetency() + "\n";
+        assertEquals(job.toString(), str);
     }
 
 
